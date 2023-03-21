@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Druglabel</title>
+  <link rel="stylesheet" type="text/css" href="labelcss.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head> 
+ <body>
+<div id = "container" >
+  <button id="Generate-print-out" onclick="alert('Connect your device printer')">Print-out</button>
+
+
+  <div id = "navBar">
+  <nav>
+    <a href="#" title="Share via Bluetooth" class="share-option">
+      <i class="fas fa-bluetooth"></i>
+      Bluetooth
+    </a>
+    <a href="#" title="Share on Facebook" class="share-option">
+      <i class="fab fa-facebook-square"></i>
+      Facebook
+    </a>
+    <a href="#" title="Share on WhatsApp" class="share-option">
+      <i class="fab fa-whatsapp"></i>
+      WhatsApp
+    </a>
+    
+  </nav>
+</div>
+
+  <div id="Drug-label">
+    <div id="label-ID">
+      <input type="text" id="label-ID" name="label-ID"><br>
+      <label for="label-ID">Label-ID:</label><br>
+    </div>
+<div id = "DrugName">
+    <input type="text"  name="DrugName"><br>
+    <label for="DrugName">Drug Name:</label><br>
+  </div>
+
+<div id="shake-the-mixture">
+      <p><strong>Shake The Mixture</strong></p>
+    </div>
+
+    <div id="instructions">
+      <div style="display: inline-block;">
+        Give
+        <form style="display: inline-block;">
+          <input type="number" name="dose" size="2"> ml
+        </form>
+      <form style="display: inline-block;">
+        <input type="number" name="frequency" size="2">
+      </form>
+      times daily
+    </div>
+  </div>
+  <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <div id = "date"> <p>Date Of Manufacture: <span id="created_date"></span></p></div>   
+    <div id="primInstructions">
+      <p><strong>Discard after 14 days <br>Keep Drug Away from Children </strong></p>
+    </div>
+    <div id="place-of-manufacture">
+      <p>QUALITY CONTROL DEPARTMENT <br>IRRUA SPECIALIST TEACHING HOSPITAL <br>+2348106583743</p>
+    </div>
+    <div id= "Qrcode">
+      <img src = "/qr_code.png" alt="placeholder qr code">
+    </div>
+    </div>
+    </div>
+
+</div>
+
+ </body>
+
+
+<script>
+  function updateDate() {
+    // Get the current date and time
+    var currentDate = new Date();
+
+    // Format the date and time as a string
+    var dateString = currentDate.toLocaleString();
+
+    // Get the element with the "created_date" id
+    var createdDateElement = document.getElementById("created_date");
+
+    // Set the inner text of the element to the formatted date and time string
+    createdDateElement.innerText = dateString;
+  }
+
+  // Call the updateDate function to set the initial value
+  updateDate();
+
+
+
+</script>
+
+  <script>
+  function printOut() {
+    alert('Connect your device printer');
+  }
+
+  var button = document.createElement('button');
+  button.innerHTML = 'Print-out';
+  button.onclick = printOut;
+  button.id = 'Generate-print-out';
+
+  document.body.appendChild(button);
+</script>
+
+</script>
+</html>

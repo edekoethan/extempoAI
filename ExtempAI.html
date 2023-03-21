@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>extemp.ai</title>
+  <link rel="stylesheet" type="text/css" href="compoundme-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head> 
+ <body>
+
+  <div id="greeting">
+    <h1>extemp.ai</h1>
+    <div id="typed-text"> <p>Click 'Initialize Bot' to start </p></div>
+    <button id="type-button">Initialize Bot</button>
+    <script>const button = document.getElementById('type-button');
+    button.addEventListener('click', () => {
+      // Code to trigger the type out effect goes here
+      const typedText = document.getElementById('typed-text');
+const fullText = 'Hi there ! I am an Artificially intelligent bot. I can help you calculate the quantities and concentrations of ingredients needed for an extemporaneous preparation, check for errors, DTPs etc. To get started, click the "Get Started" button below.';
+let currentIndex = 0;
+
+const intervalId = setInterval(() => {
+  typedText.textContent = fullText.substr(0, currentIndex);
+  currentIndex++;
+
+  if (currentIndex > fullText.length) {
+    clearInterval(intervalId);
+  }
+}, 20);
+
+});
+</script>
+
+<button id="start-button">Get Started</button>
+<button id="generate-button">Generate Instructions</button> 
+
+<div>
+<ul id="menu">
+  <li><a href="#">Log-In</a></li>
+  <li><a href="#">Blog-Post</a></li>
+  <li><a href="#">Chat-Room</a></li>
+  <li><a href="#">Purchase-Online</a></li>
+  <li><a href="#">AI-Tools</a></li>
+  <li><a href="#">About Us</a></li>
+  <li><a href="#">Contact Us</a></li>
+</ul>
+</div>
+
+</div>
+<form id="extemporaneous-form" style="display:none;">
+ 
+    <input type="string" id="patient-name" name="patient-name"><br>
+    <label for="patient-name">Patient Name:</label><br>
+   
+    <button class="check-button">Check</button>
+
+    <input type="string" id="drug-name" name="drug-name"><br>
+    <label for="drug-name">Drug Name:</label><br>
+
+    <input type="number" id="patient-weight" name="patient-weight"><br>
+    <label for="patient-weight">Patient Weight (kg):</label><br>
+
+    <input type="number" id="prescribed-dose" name="prescribed-dose"><br>
+    <label for="prescribed-dose">Prescribed-dose (mg):</label><br>
+
+    <input type="number" id="available-tablet-strength" name="available-tablet-strength"><br>
+    <label for="available-tablet-strength">Available tablet Strength (mg):</label><br>
+
+    <input type="number" id="administered-dose" name="administered-dose"><br>
+    <label for="administered-dose">Administered-dose (ml):</label><br>
+
+    <input type="number" id="frequency-of-use" name="frequency-of-use"><br>
+    <label for="frequency-of-use">Frequency (OD = 1, BD = 2, TDS = 3):</label><br>
+
+    <input type="number" id="duration-of-use" name="duration-of-use"><br>
+    <label for="duration-of-use">Duration of Use (days):</label><br>
+
+    
+    <button type="button" id="calculate-button">Calculate</button>
+    <button id="Save">Save</button>
+    <button id="print-label">Print Label</button>
+  </form>
+
+  <div id="result"></div>
+
+ <script>
+    startButton = document.getElementById('start-button');
+const form = document.getElementById('extemporaneous-form');
+
+startButton.addEventListener('click', () => {
+  form.style.display = 'block';
+});
+  
+  
+</script> 
+
+
+<div id="result"></div>
+
+<script>
+  function calculateTotalNumberOfTablets(prescribedDose, frequencyOfUse, durationOfUse, availableTabletStrength) {
+    return (prescribedDose * frequencyOfUse * durationOfUse) / availableTabletStrength;
+  }
+
+  function calculateTotalVolume(prescribedDose, frequencyOfUse, durationOfUse, administeredDose) {
+    return (prescribedDose * frequencyOfUse * durationOfUse * administeredDose) / prescribedDose;
+  }
+
+  
+  const calculateButton = document.getElementById('calculate-button');
+  const resultDiv = document.getElementById('result');
+
+  calculateButton.addEventListener('click', () => {
+    const prescribedDose = document.getElementById('prescribed-dose').value;
+    const frequencyOfUse = document.getElementById('frequency-of-use').value;
+    const durationOfUse = document.getElementById('duration-of-use').value;
+    const availableTabletStrength = document.getElementById('available-tablet-strength').value;
+    const administeredDose = document.getElementById('administered-dose').value;
+
+    const totalNumberOfTablets = calculateTotalNumberOfTablets(prescribedDose, frequencyOfUse, durationOfUse, availableTabletStrength);
+    const totalVolume = calculateTotalVolume(prescribedDose, frequencyOfUse, durationOfUse, administeredDose);
+
+    resultDiv.innerHTML = `Total number of tablets: ${totalNumberOfTablets}<br>Total volume: ${totalVolume}`;
+  });
+</script>
+
+<div id="instructions"></div>
+ 
+<script>
+// Get a reference to the generate-button element
+const generateButton = document.querySelector('#generate-button');
+
+// Add a click event listener to the button
+generateButton.addEventListener('click', function() {
+  // Get the values of the patient-name and drug-name fields
+  const patientName = document.querySelector('#patient-name').value;
+  const drugName = document.querySelector('#drug-name').value;
+
+  // Generate the instructions
+  const instructions = `
+    <p>These are the instructions for compounding ${drugName} for ${patientName}:</p>
+    <ol>
+      <li>Wash all materials</li>
+      <li>Clean the working area</li>
+      <li>Calibrate the bottle to the total volume mark</li>
+      <li>Dissolve the total number of tablets in the one third of the required vehicle</li>
+      <li>Crush and stirr until a uniform solution is achieved</li>
+      <li>Transfer the solution into the dispensing bottle</li>
+      <li>Add the required excipents; sweetners, preservatives etc</li>
+      <li>Make to volume with the vehicle</li>
+      <li>Shake and clean the bottle</li>
+      <li>Print out label, add label ID and attach label</li>
+    </ol>
+  `;
+
+  // Get a reference to the instructions element
+  const instructionsElement = document.querySelector('#instructions');
+
+  // Initialize the text to an empty string
+  let text = '';
+
+  // Set the interval to type out the instructions one character at a time
+  const interval = setInterval(function() {
+    // Add the next character to the text
+    text += instructions[text.length];
+
+    // Update the instructions element with the current text
+    instructionsElement.innerHTML = text;
+
+    // If all the characters have been typed out, clear the interval
+    if (text === instructions) {
+      clearInterval(interval);
+    }
+  }, 50);
+});
+
+
+</script>
+<script>
+ const menuButton = document.getElementById('menu-button');
+const menu = document.getElementById('menu');
+
+menuButton.addEventListener('click', () => {
+  menu.classList.toggle('dropdown');
+});
+
+</script>
+
+
+
+<form class = 'newslatter'>
+  <label for="email">Subscribe to our newsletter:</label><br>
+  <input type="email" id="email" name="email"><br>
+  <button type="submit">Subscribe</button>
+</form> 
+
+
+
+<div class="social-media">
+  <a href="#" class="facebook">
+    <i class="fa fa-facebook-square"></i> Follow us on Facebook
+  </a>
+  <a href="#" class="twitter">
+    <i class="fa fa-twitter-square"></i> Follow us on Twitter
+  </a>
+  <a href="#" class="telegram">
+    <i class="fa fa-telegram"></i> Follow us on Telegram
+  </a>
+</div>
+
+
+<script>
+document.getElementById("print-label").addEventListener("click", function() {
+  // Open the "druglabel.html" document in a new window
+  var drugLabelWindow = window.open("label.html");
+
+  // Get a reference to the "drug-name" element in the form
+  var formDrugNameElement = document.getElementById("drug-name");
+
+  // Get a reference to the "drug-name" element in the "druglabel.html" document
+  var drugLabelDrugNameElement = drugLabelWindow.document.getElementById("drug-name");
+
+  // Set the innerHTML of the "drug-name" element in the "druglabel.html" document to the innerHTML of the "drug-name" element in the form
+  drugLabelDrugNameElement.innerHTML = formDrugNameElement.innerHTML;
+});
+
+
+</script>
+</html>
