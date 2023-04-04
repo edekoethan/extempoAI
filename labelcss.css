@@ -1,0 +1,119 @@
+#container {
+  width: 600px;
+  height: 700px;
+  background-color: white;
+  border: 1px solid rgb(49, 49, 49);
+  float:none;
+  margin: auto;
+  margin-top: 100px;
+}
+
+#Drug-label {
+  width: 400px;
+  height: 500px;
+  background-color: white;
+  border: 3px solid black;
+  float:none;
+  margin: auto;
+  margin-top: 60px;
+  padding-bottom: 20px;
+}
+
+#shake-the-mixture{
+  margin-top: 50px;
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  }  
+
+  #instructions{
+    margin:auto;
+    color: black;
+    text-align: left;
+    font-size: 18px;
+    }    
+
+  #Patient-Name{
+      margin:auto;
+      color: black;
+      text-align: center;
+      font-size: 22px;
+     
+      }    
+ #date{
+  text-align: center;
+ }
+
+ #primInstructions{
+  text-decoration: underline;
+  color:red;
+  text-align: center;
+ }
+
+#label-ID{
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+#place-of-manufacture{
+  color:black;
+  text-align: center;
+}
+
+.share-option {
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.share-option:hover {
+  color: #000;
+}
+
+.share-option img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+#navBar{
+  margin-top: 30px;
+}
+
+#Generate-print-out{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float:right;
+    margin-right: 10px;
+    
+  }
+  
+#Generate-print-out:hover {
+    background-color: #45a049;
+  }
+
+input[type="text"] {
+    width: 50%;
+    font-size: 16px;
+  }
+#name{
+  margin-top: 10px;
+}
+
+#DrugName{
+  margin-top: 20px;
+  padding-top: 20PX;
+}
+
+#Qrcode{
+  width: 50px;
+  height: 50px;
+  margin: auto;
+}
