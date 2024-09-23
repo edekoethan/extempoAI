@@ -1,0 +1,132 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.app {
+  text-align: center;
+  padding: 50px;
+  position: relative; /* For positioning the form */
+}
+
+.slider {
+  position: relative; /* For the images */
+}
+
+.slider img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 15px; /* Curved edges */
+  margin-bottom: 150px;
+}
+
+.form-container {
+  position: absolute; /* Position it over the image */
+  bottom: 20px; /* Adjust this value as needed */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  width: 80%; /* Width of the form container */
+}
+
+.form-group {
+  margin: 15px 0;
+}
+
+.form-input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.start-button, .nav-button, .submit-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: green;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px; /* Margin for spacing */
+}
+
+.start-button:hover, .nav-button:hover, .submit-button:hover {
+  background-color: darkgreen;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center; /* Center the buttons */
+}
+
+#menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  list-style-type: none;
+  background-color: black; /* Background for the menu */
+}
+
+.menu-group {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+}
+
+.menu-group.left {
+  align-items: flex-start; /* Align to the left */
+}
+
+.menu-group.center {
+  align-items: center; /* Center items */
+}
+
+.menu-group.right {
+  align-items: flex-end; /* Align to the right */
+}
+
+#menu li {
+  margin: 5px 0; /* Spacing between menu items */
+}
+
+#menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#menu a:hover {
+  color: #61dafb; /* Change color on hover */
+}
+
+.results-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.results-content {
+  background: white;
+  color :black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px; /* Adjust width as needed */
+}
+
+.close-button {
+  background-color: green; /* Style for the close button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
