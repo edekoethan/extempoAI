@@ -14,15 +14,17 @@ body {
 }
 
 .slider img {
-  max-width: 50%;
-  height: auto;
+  max-width: 100%; /* Ensure the image occupies the full width of its container */
+  height: auto; /* Keep the aspect ratio */
   border-radius: 15px; /* Curved edges */
   margin-bottom: 150px;
+  object-fit: cover; /* Ensure the image fits nicely within the space */
 }
+
 
 .form-container {
   position: absolute; /* Position it over the image */
-  bottom: 20px; /* Adjust this value as needed */
+  top: 50%; /* Center vertically */
   left: 50%;
   transform: translateX(-50%); /* Center horizontally */
   width: 80%; /* Width of the form container */
@@ -52,6 +54,7 @@ body {
   margin: 5px; /* Margin for spacing */
 }
 
+
 .start-button:hover, .nav-button:hover, .submit-button:hover {
   background-color: darkgreen;
 }
@@ -60,13 +63,18 @@ body {
   display: flex;
   justify-content: center; /* Center the buttons */
 }
-
 #menu {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  padding-bottom: 50px;
   list-style-type: none;
-  background-color: black; /* Background for the menu */
+  background-color: rgb(42, 42, 42); /* Background for the menu */
+  position: fixed; /* Fixes the menu at the top of the page */
+  top: -15px; /* Positions it at the top */
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensures the menu stays on top of other content */
 }
 
 .menu-group {
@@ -101,6 +109,7 @@ body {
   color: #61dafb; /* Change color on hover */
 }
 
+/* Modal styles */
 .results-modal {
   position: fixed;
   top: 0;
@@ -111,22 +120,302 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1100; /* Ensure it is on top of the form modal */
 }
 
 .results-content {
   background: white;
-  color :black;
+  color: black;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   width: 300px; /* Adjust width as needed */
 }
 
-.close-button {
-  background-color: green; /* Style for the close button */
-  color: white;
+#result-close-button {
+  color: rgb(255, 0, 0);
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+
+/* Modal background overlay */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content */
+.modal-content {
+  width: 600px;
+  height: 700px;
+  background-color: white;
+  border: 1px solid rgb(49, 49, 49);
+  margin: auto;
+  margin-top: 100px;
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Close button */
+.close-button {
+  color: #fb0000;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: rgba(255, 0, 0, 0.847);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Form styles */
+#Drug-label {
+  width: 400px;
+  height: 500px;
+  background-color: white;
+  border: 3px solid black;
+  margin: auto;
+  margin-top: 60px;
+  padding-bottom: 20px;
+}
+
+#Drug-label div {
+  margin-bottom: 15px;
+}
+
+#Drug-label label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#Drug-label input[type="text"],
+#Drug-label input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#Drug-label p {
+  margin: 10px 0;
+}
+
+#Drug-label img {
+  max-width: 100%;
+  height: auto;
+}
+
+#shake-the-mixture {
+  margin-top: 50px;
+  color: black;
+  text-align: center;
+  font-size: 18px;
+}
+
+#instructions {
+  margin: auto;
+  color: black;
+  text-align: left;
+  font-size: 18px;
+}
+
+#Patient-Name {
+  margin: auto;
+  color: black;
+  text-align: center;
+  font-size: 22px;
+}
+
+#date {
+  text-align: center;
+  color: black;
+}
+
+#primInstructions {
+  text-decoration: underline;
+  color: red;
+  text-align: center;
+}
+
+#label-ID {
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+  transform: scale(0.5); /* Reduce size to 1/3 */
+}
+
+#place-of-manufacture {
+  color: black;
+  text-align: center;
+}
+
+.share-option {
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.share-option:hover {
+  color: #000;
+}
+
+.share-option img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+#navBar {
+  margin-top: 30px;
+}
+
+#Generate-print-out {
+  background-color: #4CAF50;
+  color: rgb(0, 0, 0);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+  margin-right: 10px;
+}
+
+#Generate-print-out:hover {
+  background-color: #45a049;
+}
+
+input[type="text"] {
+  width: 50%;
+  font-size: 16px;
+}
+
+#name {
+  margin-top: 10px;
+}
+
+#DrugName {
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.download-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background-color: #45a049;
+}
+
+.print-button {
+  background-color: #008CBA;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.content {
+  margin-top: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+.feature {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  list-style-type: disc; /* Use disc bullets */
+}
+
+.feature li {
+  display: inline; /* Display list items inline */
+  margin-right: 10px; /* Space between items */
+}
+
+.quantity {
+  display: inline-block;
+  margin-right: 10px;
+} 
+
+.info-graphic {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.info-graphic img {
+  margin-top: -290px;
+  max-width: 75%;
+  height: auto;
+  margin-left: 90px;
+
+}
+
+#save-over-text {
+  color: #fb617b;
+  font-family: fantasy;
+  font-style: italic;
+  font-size: 60px;
+}
+
+#on-each {
+  color: #fb617b;
+  font-size: 20px;
+  margin-top: -200px; 
+  font-style: italic; 
+  font-family: fantasy;
+}
+
+.form-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
